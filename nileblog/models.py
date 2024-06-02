@@ -16,6 +16,6 @@ class Like(models.Model):
     downvote = models.IntegerField(default=0)
     
     
-class Comment(models.Model):
+class Commnt(models.Model):
     title_text = models.ForeignKey(Article,  on_delete=models.CASCADE)
     comment_text = models.CharField(max_length=1000)
