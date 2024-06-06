@@ -4,6 +4,8 @@ from nileblog.models import Article
 
 # Create your views here.
 class indexView(generic.ListView):
-    model = Article
     template_name = "nileblog/article_list.html"
+    context_object_name = "article_list"
     
+    def get_queryset(self):
+        return Article.objects.all()

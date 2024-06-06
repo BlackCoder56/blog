@@ -1,4 +1,38 @@
 {% extends 'nileblog/base.html' %}
 {% block content %}
-<h3>Body</body>
+    <div class="middle-box  mx-auto" >
+    <h1></h1>
+    {% if article_list %}
+        {% for article in article_list %}      
+            <div class="container list-group mx-auto">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{article.title_text}}</h5>
+                    <small>{{ article.pub_date}}</small>
+                  </div>
+                  <p class="mb-1">{{article.preview_text}}</p>
+                  <hr/>
+                  <span>
+                   <i class="fa-regular fa-thumbs-up"></i>
+                  </span>
+                  <span>
+                    <i class="fa-regular fa-thumbs-down"></i>
+                    0
+                   </span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+              </div>
+
+        {% endfor %}
+    {% else %}
+    <h3>No Articles</h3>
+    {% endif %}
+    </div>
 {% endblock content %}
