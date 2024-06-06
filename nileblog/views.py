@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.views import generic
-from nileblog.models import Article
+from nileblog.models import Article, Like
+from django.utils import timezone
 
 # Create your views here.
 class indexView(generic.ListView):
@@ -8,4 +9,11 @@ class indexView(generic.ListView):
     context_object_name = "article_list"
     
     def get_queryset(self):
-        return Article.objects.all()
+        return Article.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")
+   
+    
+def upvote(request):
+    pass
+
+def downvote(request):
+    pass
