@@ -1,0 +1,25 @@
+{% extends 'nileblog/base.html' %}
+{% block content %}
+{% load humanize %}
+    <h1></h1>
+    <div class="container mx-auto">     
+        <ol class="breadcrumb fixed my-3 ">
+            <li class="breadcrumb-item"><a href="{% url "nileblog:article_index_archive" %}">Home</a></li>
+            <li class="breadcrumb-item active">article</li>
+          </ol>
+        <div class="list-group" style="text-align: justify; ">
+            <div class="list-group-item flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h3 class="mb-1">{{article.title_text}}</h3>
+                <small class="text-muted">3 days ago</small>
+            </div>
+            <hr/>
+            <p class="mb-1">{{ article.details_text }}</p>
+            <small class="text-muted">Donec id elit non mi porta.</small>
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock content %}

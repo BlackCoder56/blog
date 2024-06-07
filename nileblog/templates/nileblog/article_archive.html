@@ -1,18 +1,21 @@
 {% extends 'nileblog/base.html' %}
 {% block content %}
-   
+{% load humanize %}
     <h1></h1>
     <div class="container mx-auto">       
-        {% if article_list %}        
+        {% if latest %}        
                 <div class="container list-group mx-auto ">
                     <ol class="breadcrumb fixed my-2">
                         <li class="breadcrumb-item active">Home</li>
                     </ol>
-                    {% for article in article_list %}      
-                    <a href="#" class="list-group-item border border-dark list-group-item-action flex-column align-items-start active my-1">
+                    {% for article in latest %}      
+                    <a href="{% url 'nileblog:detail' article.id %}" class="list-group-item border border-dark list-group-item-action flex-column align-items-start active my-1">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">{{article.title_text}}</h5>
-                            <small>{{ article.pub_date}}</small>
+                            <small>
+                                {{ article.pub_date | timesince  }} 
+                                <span style="">ago</span>
+                            </small>
                         </div>
                         <p class="mb-1">{{article.preview_text}}</p>
                         <hr/>
