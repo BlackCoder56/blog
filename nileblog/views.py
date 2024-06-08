@@ -7,11 +7,13 @@ from django.views.generic.dates import ArchiveIndexView
 
 # Create your views here.
 class ArticleArchiveIndexView(ArchiveIndexView):
-    queryset = Article.objects.all()
+    queryset = Article.objects.filter(pub_date__lte=timezone.now())
     date_field = "pub_date"
     make_object_list = True
     allow_future = True
-
+    
+    # def get_queryset(self):
+    #     return Article.objects.filter(pub_date__lte=timezone.now())
 
 class DetailView(generic.DetailView):
     model = Article

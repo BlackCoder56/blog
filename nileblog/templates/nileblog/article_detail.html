@@ -11,11 +11,15 @@
             <div class="list-group-item flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h3 class="mb-1">{{article.title_text}}</h3>
-                <small class="text-muted">3 days ago</small>
+                <small class="text-muted">
+                    <a href="#">
+                    <i class="fa-regular fa-thumbs-up fa-xl"></i>
+                    </a>
+                </small>
             </div>
             <hr/>
             <p class="mb-1">{{ article.details_text }}</p>
-            <small class="text-muted">Donec id elit non mi porta.</small>
+            <small class="text-muted"> {{ article.pub_date | timesince  }} </small>
             </div>
         </div>
 
