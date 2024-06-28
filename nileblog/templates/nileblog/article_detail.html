@@ -1,29 +1,28 @@
 {% extends 'nileblog/base.html' %}
 {% block content %}
 {% load humanize %}
+{% load custom_filters %}
     <h1></h1>
-    <div class="container mx-auto">     
-        <ol class="breadcrumb fixed my-3 ">
+    <div style="margin-top:90px;">     
+       <ol class="breadcrumb  ">
             <li class="breadcrumb-item"><a href="{% url "nileblog:article_index_archive" %}">Home</a></li>
             <li class="breadcrumb-item active">article</li>
           </ol>
         <div class="list-group" style="text-align: justify; ">
             <div class="list-group-item flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h3 class="mb-1">{{article.title_text}}</h3>
-                <small class="text-muted">
-                    <a href="#">
-                    <i class="fa-regular fa-thumbs-up fa-xl"></i>
-                    </a>
-                </small>
-            </div>
-            <hr/>
-            <p class="mb-1">{{ article.details_text }}</p>
-            <small class="text-muted"> {{ article.pub_date | timesince  }} </small>
+                <div class="d-flex w-100 justify-content-between">
+                    <h3 class="mb-1">{{article.title_text}}</h3>
+                    {% comment %} <small class="text-muted mx-2">
+                        <a href="#">
+                        <i class="fa-regular fa-thumbs-up fa-xl"></i>
+                        </a>
+                    </small> {% endcomment %}
+                </div>
+                <hr/>
+                <p class="mb-1">{{ article.details_text }}</p>
+                <small class="text-muted"> {{ article.pub_date | custom_timesince }} </small>
             </div>
         </div>
-
-
-
+        {% include 'nileblog/comment_form.html' %}
     </div>
 {% endblock content %}
