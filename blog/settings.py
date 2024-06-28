@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fontawesomefree',
-    'django.contrib.humanize',
+    'django.contrib.humanize',    
 ]
 
 MIDDLEWARE = [

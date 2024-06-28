@@ -2,10 +2,10 @@
 {% block content %}
 {% load humanize %}
     <h1></h1>
-    <div class="container mx-auto">       
+      
         {% if latest %}        
-                <div class="container list-group mx-auto ">
-                    <ol class="breadcrumb fixed my-2">
+                <div class="list-group mx-auto " style="margin-top:90px;">
+                    <ol class="breadcrumb">
                         <li class="breadcrumb-item active">Home</li>
                     </ol>
                     {% for article in latest %}      
@@ -13,8 +13,9 @@
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">{{article.title_text}}</h5>
                             <small>
-                                {{ article.pub_date | timesince  }} 
-                                <span style="">ago</span>
+                                {% comment %} {{ article.pub_date | timesince  }}  {% endcomment %}
+                                {{ article.pub_date | date }}
+                                {% comment %} <span style="">ago</span> {% endcomment %}
                             </small>
                         </div>
                         <p class="mb-1">{{article.preview_text}}</p>
@@ -29,7 +30,7 @@
                         </span>
                     </a>          
         {% endfor %}
-    </div>
+        {% include 'nileblog/subscription_form.html' %}
     {% else %}
         <h3>No Articles</h3>
     {% endif %}
