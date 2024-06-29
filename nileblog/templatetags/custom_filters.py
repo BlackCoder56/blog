@@ -1,4 +1,3 @@
-# myapp/templatetags/custom_filters.py
 from django import template
 from django.utils.timesince import timesince
 
