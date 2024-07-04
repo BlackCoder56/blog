@@ -12,22 +12,21 @@
                     <a href="{% url 'nileblog:detail' article.id %}" class="list-group-item border border-dark list-group-item-action flex-column align-items-start active my-1">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">{{article.title_text}}</h5>
-                            <small>
-                                {% comment %} {{ article.pub_date | timesince  }}  {% endcomment %}
-                                {{ article.pub_date | date }}
-                                {% comment %} <span style="">ago</span> {% endcomment %}
-                            </small>
+                            
                         </div>
                         <p class="mb-1">{{article.preview_text}}</p>
                         <hr/>
-                        <span>
+                        <span class="mx-1">
                             <i class="fa-regular fa-thumbs-up"></i>
                             {{article.upvote}}
                         </span>
-                        <span>
+                        <span class="mx-1">
                             <i class="fa-regular fa-thumbs-down"></i>
                             {{article.upvote}}
                         </span>
+                        <small class="mx-2">                              
+                            {{ article.pub_date | date }}                               
+                        </small>
                     </a>          
         {% endfor %}
         {% include 'nileblog/subscription_form.html' %}
